@@ -1,0 +1,54 @@
+.phone-table {
+  width: 100%;
+}
+
+#country-drop-down {
+  margin-bottom: 50;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.mat-column-name {
+  width: 300px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* border-right: 1px solid currentColor; */
+  padding-right: 5px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.mat-column-phone {
+  width: 300px;
+  padding-left: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.mat-column-countryCode {
+  width: 300px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+.mat-column-country {
+  width: 300px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+.mat-column-state {
+  width: 300px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* .mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+} */
+
+.mat-row:hover .mat-cell {
+  background-color: lightskyblue;
+}

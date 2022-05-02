@@ -1,0 +1,67 @@
+<!-- <router-outlet></router-outlet> -->
+<div class="mat-elevation-z8">
+  <table mat-table class="phone-table" id="phone-view-list-table" [dataSource]="phoneTable">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef class="header-width" id="phone-res-th-name-label">Name</th>
+      <td mat-cell class="row-cell-width" *matCellDef="let item; let i = index;" id="phone-res-td-{{i}}"> {{item.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef class="header-width" id="phone-res-th-phone-label">Phone</th>
+      <td mat-cell class="row-cell-width" *matCellDef="let item; let i = index;" id="phone-res-td-phone-{{i}}">
+        {{item.phone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef class="header-width" id="phone-res-th-country-label">
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <select matNativeControl [(ngModel)]="country" (change)="ngOnInit()">
+            <option value="" selected>All</option>
+            <option value="Cameroon">Cameroon</option>
+            <option value="Ethiopia">Ethiopia</option>
+            <option value="Morocco">Morocco</option>
+            <option value="Mozambique">Mozambique</option>
+            <option value="Uganda">Uganda</option>
+          </select>
+        </mat-form-field>
+      </th>
+      <td mat-cell class="row-cell-width" *matCellDef="let item; let i = index;" id="phone-res-td-country-{{i}}">
+        {{item.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="countryCode">
+      <th mat-header-cell *matHeaderCellDef class="header-width" id="phone-res-th-countryCode-label">Country Code</th>
+      <td mat-cell class="row-cell-width" *matCellDef="let item; let i = index;" id="phone-res-td-countryCode-{{i}}">
+        {{item.countryCode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef class="header-width" id="state-res-th-country-label">State
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" *ngIf="!country" [(ngModel)]="state" (change)="ngOnInit()">
+          <mat-button-toggle value="true">True</mat-button-toggle>
+          <mat-button-toggle value="false">False</mat-button-toggle>
+          <mat-button-toggle value="">Both</mat-button-toggle>
+        </mat-button-toggle-group>
+      </th>
+      <td mat-cell class="row-cell-width" *matCellDef="let item; let i = index;" id="phone-res-td-state-{{i}}">
+        {{item.state}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row class="row-height" *matRowDef="let row; columns: displayedColumns; let i=index;let even=even"
+      id="row-{{i}}"></tr>
+  </table>
+
+  <mat-paginator class="changes-paginator"
+                 [length]="totalResults"
+                 [pageSize]="defaultRecords"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 (page)="pageEvent=$event; onPaginatedChange($event)"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements"
+  >
+
+  </mat-paginator>
+
+</div>

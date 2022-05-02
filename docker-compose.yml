@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  backendserver:
+    build: ./sqlite/sqlite
+    ports:
+           - "8080:8080"
+    restart: always
+  frontend:
+    build: ./phoneValidator/
+    links:
+           - "backendserver"
+    depends_on:
+           - "backendserver"
+    ports:
+           - "4200:4200"
